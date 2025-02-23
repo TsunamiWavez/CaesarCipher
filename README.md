@@ -48,7 +48,6 @@ Hello, World!
 What do you want now?: 3
 
 The end of the program...
-
 ```
 
 ## Requirements
