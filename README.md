@@ -1,9 +1,10 @@
 # Caesar Cipher Encryption and Decryption
 
 ## Description
-This is a simple Python program that allows users to encrypt or decrypt messages using the **Caesar Cipher** method. The Caesar Cipher is a substitution cipher where each letter in the plaintext is shifted a fixed number of places (in the current version - 3) down or up the alphabet.
+This is a simple Python program that allows users to encrypt or decrypt messages using the **Caesar Cipher** method. The Caesar Cipher is a substitution cipher where each letter in the plaintext is shifted a fixed number of places down or up the alphabet.
 
 ## Features
+- Determine the number of characters to shift forward/backward
 - Encrypt messages by shifting letters forward in the alphabet.
 - Decrypt messages by shifting letters backward in the alphabet.
 - Retains special characters, numbers, and spaces unchanged.
@@ -16,8 +17,9 @@ This is a simple Python program that allows users to encrypt or decrypt messages
    - Enter `2` to decrypt a message.
    - Enter `3` to exit the program.
 3. Input your message.
-4. The program will output the encrypted or decrypted message.
-5. Choose whether to exit or continue.
+4. Determine the number of characters to shift (from 1 to 25)
+5. The program will output the encrypted or decrypted message.
+6. Choose whether to exit or continue.
 
 ## Example Usage
 ```
@@ -31,21 +33,25 @@ Options of your input:
 Please use only these options (from 1 to 3), 
 otherwise the program will return an error!
 
-What do you want?: 1
+What do you want to do?: 1
 
 Enter your secret message: Hello, World!
 
+How many characters should be shifted forward/backward? (1-25): 7
+
 Here is your encrypted message:
-Khoor, Zruog!
+Olssv, Dvysk!
 
-What do you want now?: 2
+What do you want to do now?: 2
 
-Enter your encrypted message: Khoor, Zruog!
+Enter your encrypted message: Olssv, Dvysk!
+
+How many characters should be shifted forward/backward? (1-25): 7
 
 Here is your decrypted message:
 Hello, World!
 
-What do you want now?: 3
+What do you want to do now?: 3
 
 The end of the program...
 ```
