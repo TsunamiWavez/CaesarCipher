@@ -12,7 +12,7 @@ def num_of_characters_to_shift():
     while True:
         try:
             user_choice = int(input("\nHow many characters should be "
-                                    "shifted forward/backward? (1-25) "))
+                                    "shifted forward/backward? (1-25): "))
             break
         except ValueError:
             print("\nThat was an error. Please enter only numbers, not words!")
