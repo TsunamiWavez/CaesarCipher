@@ -7,11 +7,23 @@ numbers = "0123456789"
 ignore_characters = special_chars + numbers
 
 
+# Determine the number of characters to shift
+def num_of_characters_to_shift():
+    while True:
+        try:
+            user_choice = int(input("\nHow many characters should be "
+                                    "shifted forward/backward? (1-25) "))
+            break
+        except ValueError:
+            print("\nThat was an error. Please enter only numbers, not words!")
+            continue
+
+    return user_choice
+
+
 # Message encrypting
-def encrypt(input_message):
+def encrypt(input_message, num):
     encrypted_message = ""
-    index = 0
-    new_index = 0
 
     for letter in input_message:
         # Skip special characters and numbers
@@ -21,12 +33,12 @@ def encrypt(input_message):
         # Encrypting lowercase letters
         if letter in alphabet_lower:
             index = alphabet_lower.index(letter)
-            new_index = (index + 3) % len(alphabet_lower)
+            new_index = (index + num) % len(alphabet_lower)
             encrypted_message += alphabet_lower[new_index]
         # Encrypting uppercase letters
         if letter in alphabet_upper:
             index = alphabet_upper.index(letter)
-            new_index = (index + 3) % len(alphabet_upper)
+            new_index = (index + num) % len(alphabet_upper)
             encrypted_message += alphabet_upper[new_index]
 
     print("\nHere is your encrypted message:")
@@ -34,10 +46,8 @@ def encrypt(input_message):
 
 
 # Message decrypting
-def decrypt(input_message):
+def decrypt(input_message, num):
     decrypted_message = ""
-    index = 0
-    new_index = 0
 
     for letter in input_message:
         # Skip special characters and numbers
@@ -47,12 +57,12 @@ def decrypt(input_message):
         # Encrypting lowercase letters
         if letter in alphabet_lower:
             index = alphabet_lower.index(letter)
-            new_index = (index - 3) % len(alphabet_lower)
+            new_index = (index - num) % len(alphabet_lower)
             decrypted_message += alphabet_lower[new_index]
         # Encrypting uppercase letters
         if letter in alphabet_upper:
             index = alphabet_upper.index(letter)
-            new_index = (index - 3) % len(alphabet_upper)
+            new_index = (index - num) % len(alphabet_upper)
             decrypted_message += alphabet_upper[new_index]
 
     print("\nHere is your decrypted message:")
@@ -77,7 +87,9 @@ while program_active:
     if user_choice == "1":
         message = input("\nEnter your secret message: ")
 
-        encrypt(message)
+        num = num_of_characters_to_shift()
+
+        encrypt(message, num)
 
         user_choice = input("\nWhat do you want to do now?: ")
 
@@ -86,7 +98,9 @@ while program_active:
 
         message = input("\nEnter your encrypted message: ")
 
-        decrypt(message)
+        num = num_of_characters_to_shift()
+
+        decrypt(message, num)
 
         user_choice = input("\nWhat do you want to do now?: ")
 
